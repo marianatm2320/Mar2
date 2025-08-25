@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 3</title>
+
+    <style>
+        Body{
+            background-color: black;
+            text-align: center;
+        }
+         canvas{
+          border: 1px solid #00ff55;
+          background-color: rgb(27, 27, 27);
+      }
+    </style>
+
+     <script>
+      window.onload=function(){
+          var canvas = document.getElementById("micanvas");
+          var context = canvas.getContext("2d");
+          context.fillStyle="red";
+          context.fillRect(100,100,100,100);
+          context.fillStyle="pink";
+          context.fillRect(200, 200, 200, 200);
+          context.fillStyle="rgba(0, 0, 255, 0.5)";
+          context.fillRect(300, 300, 300, 300);
+      }
+
+      var x=0;
+      var y=0;
+      var dx=5;
+      var dy=5;
+
+       function animate(){
+           requestAnimationFrame(animate);
+           var canvas = document.getElementById("micanvas");
+           var context = canvas.getContext("2d");
+           context.clearRect(0, 0, innerWidth, innerHeight);
+           console.log('animando');
+          context.fillStyle="red";
+          context.fillRect(x,100,100,100);
+          context.fillStyle="pink";
+          context.fillRect(200, y, 200, 200);
+          context.fillStyle="rgba(0, 0, 255, 0.5)";
+          context.fillRect(x, y, 300, 300);
+           
+            if (x > 800 - 100|| x < 0){
+                dx= -dx;
+            }
+              if (y > 600 - 100 || y < 0){
+                dy= -dy;
+            }
+
+            x+=dx;
+            y+=dy;
+
+        }
+
+       animate();
+
+    </script>
+
+</head>
+<body>
+    <canvas id="micanvas" width="800" height="600"></canvas>
+
+</body>
+</html>
