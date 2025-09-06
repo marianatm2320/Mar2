@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Proyecto Parcial</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <style>
+        body{
+            background-image: url("library.jpg");
+          text-align: center;
+          p  {color: rgb(177, 68, 255); font-family: "Pirata One", sans-serif; text-align: center;}
+        }
+        canvas{
+            background-color:rgba(0, 0, 0, 0.71); 
+            align-items: center;
+            text-align: center;
+        }
+
+    </style>
+
+  </head>
+  <body>
+    <canvas id="canvas" width="1500" height="650"> </canvas>
+
+    <script>
+             window.onload=function(){
+          var canvas = document.getElementById("canvas");
+          var context = canvas.getContext("2d");
+
+        context.font="89pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("Libreria del Mar", 420, 200);
+
+        context.font="12pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("El mejor catalogo segun su genero favorito", 570, 229);
+
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Presiona el numero del catalogo para ver el libro destacado de ese genero", 300, 350);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("0:", 300, 450);
+
+         context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Clasicos", 340, 450);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("1: ", 300, 500);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Terror", 340, 500);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("2: ", 500, 450);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Fantasia", 540, 450);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("3: ", 500, 500);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Romance", 540, 500);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("4: ", 700, 450);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Juvenil", 740, 450);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("5: ", 700, 500);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Distopias", 740, 500);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("6: ", 900, 450);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Aventura", 940, 450);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("7: ", 900, 500);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Poesia", 940, 500);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("8: ", 1100, 450);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Cuento", 1140, 450);
+
+        context.font="34pt Brush Script MT";
+        context.fillStyle="white";
+        context.fillText("9: ", 1100, 500);
+
+        context.font="20pt Trebuchet MS";
+        context.fillStyle="white";
+        context.fillText("Comedia", 1140, 500);
+
+          var imageFondo= new Image();
+          imageFondo.scr="library.jpg";
+
+          var image_0= new Image();
+          image_0= "clasico.jpg";
+
+          var image_1= new Image();
+          image_1= "terror.jpg";
+
+          var image_2= new Image();
+          image_2= "fantasia.jpg";
+
+          var image_3= new Image();
+          image_3= "romance.jpg";
+
+          var image_4= new Image();
+          image_4= "juvenil.jpg";
+
+          var image_5= new Image();
+          image_5= "distopia.jpg";
+          
+          var image_6= new Image();
+          image_6= "aventura.jpg";
+
+          var image_7= new Image();
+          image_7= "poesia.jpg";
+
+          var image_8= new Image();
+          image_8= "cuento.jpg";
+
+          var image_9= new Image();
+          image_9= "comedia.jpg";
+
+      function onKeyboardEvent (event) {
+        switch (event.keyCode) {
+        case 48:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Don Quijote de la mancha", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          context.drawImage(image_0, 100, 100); 
+          break;
+
+        case 49:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Dracula", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          break;
+
+        case 50:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Juego de tronos", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+
+    
+
+          break;
+        case 51:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Bajo la misma estrella", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          break; 
+      
+
+          case 52:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Los juegos del hambre", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+
+      
+          break;
+
+          case 53:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("1984", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          break;
+
+          case 54:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Los tres mosqueteros", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          break;
+           
+          case 55:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("20 poemas de amor", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          break;
+
+          case 56:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Caperucita roja", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          break;
+
+          case 57:
+          context.clearRect(0, 0, innerWidth, innerHeight);
+          context.font= "55pt Brush Script MT";
+          context.fillSTyle= "white";
+          context. fillText("Como cargarse de risa", 800, 200);
+
+          context.font="21pt Trebuchet MS";
+          context.fillStyle="white";
+          context. fillText("Presiona otro numero", 800, 250); 
+          break;
+
+        default:
+          console.log(event.keyCode);
+        }
+      }
+
+      window.addEventListener('keydown', onKeyboardEvent, false);
+    }
+
+    </script>
+
+     <h1> Libreia <h1> 
+
+  </body>
+</html>
