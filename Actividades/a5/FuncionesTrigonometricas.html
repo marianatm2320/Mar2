@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="1570" height="630"></canvas>
+    <aside>Move mouse on canvas element.</aside>
+    
+    <script src="utils.js"></script>
+
+    <script>
+        window.onload=function(){
+            var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas),
+          rueda = new Image();
+            rueda.src="llanta.png";
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        var x=canvas.width/2;
+        var y=canvas.height/2;
+        
+        context.translate(x,y);
+        
+        var dx = mouse.x - x,
+            dy = mouse.y - y;
+
+
+          
+        var radianes = Math.atan2(dy, dx); //radians
+        console.log(radianes);
+        context.rotate(radianes);
+        context.drawImage(rueda, -rueda.width/2, -rueda.height/2);
+        context.restore();
+      }());
+        };
+
+    </script>
+    
+</body>
+</html>
