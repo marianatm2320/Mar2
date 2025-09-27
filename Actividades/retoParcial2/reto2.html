@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Luciernaga</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Mozilla+Headline:wght@200..700&family=Pirata+One&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        body {background-color: rgb(0, 0, 0);}
+        canvas { 
+            text-align:center; 
+            align-items: center; 
+            background-image: url("bosque2.jpg"); 
+            background-size: 100%, 100%;
+            border-radius: 10px;
+            border: 5px solid rgb(88, 135, 175);}
+    </style>
+  </head>  
+  <body>
+    <canvas id="canvas" width="1500" height="650"></canvas>
+    
+    <script src="utils.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          angleX = 0,
+          angleY = 0,
+          range = 100,
+          centerX = 600;
+          centerY = 150,
+          xspeed = 1,
+          xspeedneg=-1, 
+          yspeed = 0.02;
+          xpos= 0; 
+          ypos= 0; 
+
+            luc = new Image();
+            luc.src="luciernaga.png";
+
+            bosque = new Image();
+            bosque.src="bosque2.jpg";
+
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, innerWidth, innerHeight);
+
+        luc.x = centerX + Math.sin(angleX) * range;
+        luc.y = centerY + Math.sin(angleY) * range;
+        angleX += xspeed;
+        angleY += yspeed;
+        
+        console.log(xpos);
+        xpos += xspeed;
+        if(xpos>1500 || xpos<0){
+       xspeed = -xspeed; 
+      } 
+        ypos = centerY + Math.sin(angleY) * range;
+        context.drawImage(luc, xpos, ypos, 200, 200);
+
+        
+        context.font="34pt Alan Sans";
+        context.fillStyle="white";
+        context.fillText("Bosque Nocturno", 50, 600);
+
+        context.restore();
+
+      }());
+    };
+    </script>
+  </body>
+</html>
