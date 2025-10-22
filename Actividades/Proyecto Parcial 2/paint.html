@@ -1,0 +1,186 @@
+```<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing App</title>
+    <style>
+        body{
+            text-align: center;
+            width: 100%;
+            background-color:rgb(30, 30, 30);
+        }
+        canvas{
+            background-color: white;
+            border-radius: 15px;
+        }
+        .container{
+            margin: 0px auto;
+            text-align: center;
+            width: 500px;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            margin: 0px;
+            border: 3px; 
+            border-color: rgb(60, 60, 60);
+            margin-bottom: 10px;
+        }
+        button:hover{
+            opacity: 50%;
+        }
+         #Black {
+            background-color:#000000;
+        }
+        #red {
+            background-color:#ff0000;
+        }
+        #Yellow {
+            background-color: yellow;
+        }
+        #Orange{
+          background-color: orange; 
+        }
+        #Lightgreen {
+            background-color: greenyellow;
+        }
+        #green {
+            background-color:green;
+        }
+        #blue {
+            background-color:blue;
+        }
+        #Lightblue {
+            background-color: lightskyblue;
+        }
+        #Lightpurple {
+            background-color: lavender;
+        }
+        #Bluepurple {
+            background-color: blueviolet;
+        }
+        #Purple {
+            background-color: purple;
+        }
+        #Pink {
+            background-color:rgb(255, 0, 204);
+        }
+        #Brown {
+            background-color: brown;
+        }
+        #Grey {
+            background-color: grey;
+        }
+        #borrar{
+            width: 100px;
+            height: 50px; 
+            border-radius: 50%;
+            background-color: white;
+            font: 16px impact;
+            color: Black;
+            position: absolute;
+            top: 10%;
+            left: 90%;
+            transform: translate(-10%, -90%);
+        }
+
+        .pincel button{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 5px; 
+            border-color: rgb(60, 60, 60);  
+             align-content: top;
+            background-color: white; 
+            font-style: italic 16px black;
+        }
+        .pincel{            
+            display: flex; 
+        }
+        .pincel2{  
+       
+            display: flex; 
+        }
+        .punto{
+          line-height: 1; 
+          stroke-linecap: round;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div id="container">
+        <div class="colores">
+            <button id="Black" type="button" value="#000000"> </button>
+            <button id="red" type="button" value="#ff0000"> </button>
+            <button id="Orange" type="button" value="rgb(255, 165, 0)"> </button> 
+            <button id="Yellow" type="button" value="rgb(255, 255, 0)"> </button> 
+            <button id="Lightgreen" type="button" value="rgb(173, 255, 47)"> </button> 
+            <button id="green" type="button" value="#00ff00"> </button>
+            <button id="blue" type="button" value="#0000ff"> </button> 
+            <button id="Lightblue" type="button" value="rgb(135, 206, 250)"> </button> 
+            <button id="Lightpurple" type="button" value="lavender"> </button>
+            <button id="Purple" type="button" value="purple"> </button>
+            <button id="Bluepurple" type="button" value="blueviolet"> </button>
+            <button id="Pink" type="button" value="rgb(255, 0, 204)"> </button> 
+            <button id="Brown" type="button" value="brown"> </button> 
+            
+            <div class="pincel">
+              <button id="pincel" type="button" class="punto" value="5">S</button> 
+              <button id="pincel" type="button" class="punto" value="10">M</button> 
+              <button id="pincel" type="button" class="punto" value="20">L</button> 
+              <button id="pincel" type="button" class="punto" value="40">XL</button>
+            <button id="borrar" type="button">Clean</button>
+
+
+        </div>           
+        </div>
+        <canvas id="canvas" width="1450px" height="550px"></canvas>
+        <aside>Click and draw with the mouse.</aside>
+    </div>
+        <script src="utils.js"></script>
+        <script>
+          window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas);
+
+          var imageBorrar= new Image();
+          imageBorrar.src="Borrador.png";
+
+        canvas.addEventListener('mousedown', function () {
+            context.beginPath();
+            context.moveTo(mouse.x, mouse.y);
+            canvas.addEventListener('mousemove', onMouseMove, false);
+        }, false);
+
+        canvas.addEventListener('mouseup', function () {
+            canvas.removeEventListener('mousemove', onMouseMove, false);
+        }, false);
+
+      function onMouseMove () {
+        context.lineTo(mouse.x, mouse.y);
+        context.stroke();
+      }
+
+      var colores = document.getElementsByClassName('colores')[0];
+      colores.addEventListener('click', function(event) {
+        context.strokeStyle = event.target.value;
+      });
+
+      var pincel = document.getElementsByClassName('pincel')[0];
+      pincel.addEventListener('click', function(event) {
+        context.lineWidth=parseInt(event.target.value);
+      });
+
+      var clearButton = document.getElementById('borrar');
+      clearButton.addEventListener('click', function() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      });
+
+    };
+    </script>
+    
+  </body>
+</html>
+```
